@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Company Site – Mockup Exercise</title>
+  <!-- Tailwind CDN (no build step) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="text-slate-800 antialiased">
+  <!-- Header / Navbar -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="#home" class="flex items-center gap-2">
+        <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-yellow-400 font-bold"><img src="https://s3-ap-southeast-1.amazonaws.com/revou-blog/2019/12/Logo-RevoU-5.png" alt=""></span>
+        <span class="sr-only">Home</span>
+      </a>
+      <button id="hamburger" class="sm:hidden p-2 border rounded" aria-label="Open Menu">☰</button>
+      <nav id="nav" class="hidden sm:flex items-center gap-2">
+        <a class="nav-link" href="#home">Home</a>
+        <a class="nav-link" href="#profile">Our Profile</a>
+        <a class="nav-link" href="#portfolio">Portfolio</a>
+        <a class="nav-link" href="#contact">Message Us</a>
+      </nav>
+    </div>
+    <!-- mobile menu -->
+    <div id="mobileMenu" class="sm:hidden hidden border-t">
+      <div class="px-4 py-2 flex flex-col">
+        <a class="py-2 nav-link" href="#home">Home</a>
+        <a class="py-2 nav-link" href="#profile">Our Profile</a>
+        <a class="py-2 nav-link" href="#portfolio">Portfolio</a>
+        <a class="py-2 nav-link" href="#contact">Message Us</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero / Home -->
+  <section id="home" class="max-w-6xl mx-auto px-4">
+    <div class="py-10 sm:py-16">
+      <h1 class="text-2xl sm:text-3xl font-semibold">Hi <span id="hiName" class="text-indigo-600">Guest</span>, Welcome To Website</h1>
+      <p class="mt-2 text-sm sm:text-base">Ini adalah website latihan pertama.</p>
+
+      <!-- Photo banner placeholder -->
+      <div class="mt-8 aspect-[1366/578] w-full rounded-xl border bg-slate-50 grid place-items-center text-slate-400 text-sm">
+        1366×578
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- Headquarters -->
+  <section class="max-w-6xl mx-auto px-4 py-10">
+    <h2 class="font-semibold text-lg mb-6">Our Headquarter</h2>
+    <div class="grid grid-cols-3 gap-6 max-sm:grid-cols-1">
+      <div class="hq-item">
+        <div class="hq-circle"></div>
+        <p class="mt-2 text-center">Jakarta</p>
+      </div>
+      <div class="hq-item">
+        <div class="hq-circle"></div>
+        <p class="mt-2 text-center">Bandung</p>
+      </div>
+      <div class="hq-item">
+        <div class="hq-circle"></div>
+        <p class="mt-2 text-center">Surabaya</p>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- Message Us + Result -->
+  <section id="contact" class="max-w-6xl mx-auto px-4 py-10">
+    <h2 class="font-semibold text-lg mb-6">Message Us</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Form -->
+      <form id="messageForm" class="space-y-3 bg-white">
+        <div>
+          <label class="form-label" for="name">Nama</label>
+          <input id="name" name="name" type="text" class="form-input" placeholder="Nama" required />
+          <p class="form-error hidden" id="errName"></p>
+        </div>
+
+        <div>
+          <label class="form-label" for="dob">Tanggal Lahir</label>
+          <input id="dob" name="dob" type="date" class="form-input" required />
+         <p class="form-error hidden" id="errDob"></p>
+        </div>
+
+        <div>
+          <span class="form-label">Jenis Kelamin</span>
+          <div class="flex items-center gap-6 mt-1">
+            <label class="inline-flex items-center gap-2">
+              <input type="radio" name="gender" value="Laki-Laki" class="h-4 w-4">
+              <span>Laki-Laki</span>
+            </label>
+            <label class="inline-flex items-center gap-2">
+              <input type="radio" name="gender" value="Perempuan" class="h-4 w-4">
+              <span>Perempuan</span>
+            </label>
+          </div>
+          <p class="form-error hidden" id="errGender"></p>
+        </div>
+
+        <div>
+          <label class="form-label" for="message">Pesan</label>
+          <textarea id="message" name="message" rows="4" class="form-input" placeholder="Pesan" required></textarea>
+          <p class="form-error hidden" id="errMessage"></p>
+        </div>
+
+        <button type="submit" class="w-full rounded-md border px-4 py-2 font-medium hover:bg-slate-50">
+          Submit
+        </button>
+      </form>
+
+      <!-- Result box -->
+      <aside class="rounded-md border p-4">
+        <div id="resultBox" class="text-sm leading-relaxed">
+          <p><strong>Current time:</strong> <span id="currentTime">—</span></p>
+          <div class="mt-3">
+            <p><strong>Nama:</strong> <span id="rName">—</span></p>
+            <p><strong>Tanggal Lahir:</strong> <span id="rDob">—</span></p>
+            <p><strong>Jenis kelamin:</strong> <span id="rGender">—</span></p>
+            <p><strong>Pesan:</strong> <span id="rMessage">—</span></p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Our Profile -->
+  <section id="profile" class="max-w-6xl mx-auto px-4 py-14">
+    <h2 class="text-2xl font-semibold">Our Profile</h2>
+    <p class="mt-2 text-slate-600 max-w-3xl">
+      Contoh profil perusahaan. Tulis informasi lengkap: sejarah singkat, produk/jasa utama, nilai-nilai,
+      serta tim inti. Di bawah ini ada “About the Company” dan “Vision & Mission”.
+    </p>
+
+    <div class="mt-8 grid md:grid-cols-2 gap-6">
+      <article class="rounded-xl border p-5">
+        <h3 class="font-semibold">About the Company</h3>
+        <p class="mt-2 text-sm">
+          Kami fokus pada solusi web sederhana yang efektif untuk UMKM. Portofolio meliputi landing page, toko online,
+          dan dashboard internal.
+        </p>
+      </article>
+      <article class="rounded-xl border p-5">
+        <h3 class="font-semibold">Vision & Mission</h3>
+        <ul class="mt-2 list-disc pl-5 text-sm">
+          <li>Visi: Memberdayakan bisnis lokal melalui teknologi web.</li>
+          <li>Misi: Desain responsif, performa cepat, dan pelayanan yang dekat dengan pengguna.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- Portfolio (placeholder only) -->
+  <section id="portfolio" class="max-w-6xl mx-auto px-4 pb-16">
+    <h2 class="text-2xl font-semibold">Portfolio</h2>
+    <p class="mt-2 text-slate-600">Contoh kartu portofolio (opsional untuk latihan ini).</p>
+    <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="rounded-lg border p-4">
+        <div class="aspect-video rounded-lg border bg-slate-50"></div>
+        <h4 class="mt-3 font-medium">Project A</h4>
+        <p class="text-sm text-slate-600">Landing page sederhana.</p>
+      </div>
+      <div class="rounded-lg border p-4">
+        <div class="aspect-video rounded-lg border bg-slate-50"></div>
+        <h4 class="mt-3 font-medium">Project B</h4>
+        <p class="text-sm text-slate-600">Toko online kecil.</p>
+      </div>
+      <div class="rounded-lg border p-4">
+        <div class="aspect-video rounded-lg border bg-slate-50"></div>
+        <h4 class="mt-3 font-medium">Project C</h4>
+        <p class="text-sm text-slate-600">Dashboard internal.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t py-6 text-center text-xs text-slate-500">
+    Created By RevoU
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

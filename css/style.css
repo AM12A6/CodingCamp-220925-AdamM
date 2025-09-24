@@ -1,0 +1,19 @@
+/* custom additions on top of Tailwind (keep single CSS file as requested) */
+html { scroll-behavior: smooth; }
+
+.nav-link { @apply px-3 py-1 rounded-md border hover:bg-slate-50 text-sm; }
+
+/* HQ circles to match wireframe */
+.hq-circle {
+  width: 140px;
+  height: 140px;
+  border: 2px solid #cbd5e1; /* slate-300 */
+  border-radius: 9999px;
+  margin: 0 auto;
+  background: white;
+}
+
+/* Simple form helpers */
+.form-label { @apply block text-sm font-medium; }
+.form-input { @apply mt-1 w-full border rounded-md px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-200; }
+.form-error { @apply text-xs text-red-600 mt-1 hidden; }
