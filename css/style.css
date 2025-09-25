@@ -1,8 +1,6 @@
 /* custom additions on top of Tailwind (keep single CSS file as requested) */
 html { scroll-behavior: smooth; }
 
-.nav-link { @apply px-3 py-1 rounded-md border hover:bg-slate-50 text-sm; }
-
 /* HQ circles to match wireframe */
 .hq-circle {
   width: 140px;
@@ -13,7 +11,50 @@ html { scroll-behavior: smooth; }
   background: white;
 }
 
-/* Simple form helpers */
-.form-label { @apply block text-sm font-medium; }
-.form-input { @apply mt-1 w-full border rounded-md px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-200; }
-.form-error { @apply text-xs text-red-600 mt-1 hidden; }
+.form-label {
+  display: block;
+  font-weight: 500;
+  color: #334155; /* slate-700 */
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.01em;
+}
+
+.form-input {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid #cbd5e1; /* slate-300 */
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  background: #f8fafc; /* slate-50 */
+  color: #334155;
+  transition: border 0.2s;
+  outline: none;
+  margin-bottom: 0.25rem;
+}
+.form-input:focus {
+  border-color: #6366f1; /* indigo-500 */
+  background: #fff;
+}
+
+.form-error {
+  color: #ef4444; /* red-500 */
+  font-size: 0.875rem;
+  margin-top: 0.1rem;
+}
+
+.hq-item {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.hq-item:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 8px 24px 0 rgba(99,102,241,0.08);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 8px;
+}

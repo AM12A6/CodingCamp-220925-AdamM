@@ -3,184 +3,222 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Company Site – Mockup Exercise</title>
-  <!-- Tailwind CDN (no build step) -->
+  <title>My Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body, .font-poppins {
+      font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    }
+  </style>
 </head>
-<body class="text-slate-800 antialiased">
-  <!-- Header / Navbar -->
-  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
+<body class="font-poppins text-gray-800 antialiased bg-gradient-to-br from-pink-200 via-yellow-100 via-60% to-purple-200 relative">
+
+  <div id="blurOverlay" class="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm hidden"></div>
+
+  <!-- Modal Nama Pengunjung -->
+  <div id="visitorModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 hidden">
+    <div class="bg-white rounded-xl shadow-lg p-8 max-w-xs w-full text-center">
+      <h2 class="text-lg font-semibold mb-4 text-pink-700">Selamat Datang!</h2>
+      <p class="mb-3 text-gray-700">Masukkan nama Anda untuk pengalaman lebih personal:</p>
+      <input id="visitorNameInput" type="text" class="form-input mb-4" placeholder="Nama Anda" autocomplete="off" />
+      <button id="visitorSubmitBtn" class="w-full rounded-md bg-pink-600 text-white font-semibold py-2 hover:bg-pink-700 transition">Masuk</button>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 bg-gradient-to-r from-pink-500 via-yellow-300 to-purple-400/90 backdrop-blur border-b shadow">
     <div class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
       <a href="#home" class="flex items-center gap-2">
-        <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-yellow-400 font-bold"><img src="https://s3-ap-southeast-1.amazonaws.com/revou-blog/2019/12/Logo-RevoU-5.png" alt=""></span>
-        <span class="sr-only">Home</span>
+        <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white border overflow-hidden">
+          <img src="asset/logo.png" alt="Logo Web" class="w-full h-full object-cover bg-white">
+        </span>
+        <span class="font-bold text-white text-lg drop-shadow">My Portofolio</span>
       </a>
-      <button id="hamburger" class="sm:hidden p-2 border rounded" aria-label="Open Menu">☰</button>
+      <button id="hamburger" class="sm:hidden p-2 border rounded text-white border-white hover:bg-white hover:text-pink-700 transition" aria-label="Open Menu">☰</button>
       <nav id="nav" class="hidden sm:flex items-center gap-2">
-        <a class="nav-link" href="#home">Home</a>
-        <a class="nav-link" href="#profile">Our Profile</a>
-        <a class="nav-link" href="#portfolio">Portfolio</a>
-        <a class="nav-link" href="#contact">Message Us</a>
+        <a class="nav-link text-white hover:bg-white/20 px-4 py-2 rounded transition" href="#home">Home</a>
+        <a class="nav-link text-white hover:bg-white/20 px-4 py-2 rounded transition" href="#profile">Tentang Saya</a>
+        <a class="nav-link text-white hover:bg-white/20 px-4 py-2 rounded transition" href="#portfolio">Portofolio</a>
+        <a class="nav-link text-white hover:bg-white/20 px-4 py-2 rounded transition" href="#contact">
+          Kontak Saya
+        </a>
       </nav>
     </div>
-    <!-- mobile menu -->
-    <div id="mobileMenu" class="sm:hidden hidden border-t">
+    <div id="mobileMenu" class="sm:hidden hidden border-t bg-white/90">
       <div class="px-4 py-2 flex flex-col">
         <a class="py-2 nav-link" href="#home">Home</a>
-        <a class="py-2 nav-link" href="#profile">Our Profile</a>
-        <a class="py-2 nav-link" href="#portfolio">Portfolio</a>
-        <a class="py-2 nav-link" href="#contact">Message Us</a>
+        <a class="py-2 nav-link" href="#profile">Tentang Saya</a>
+        <a class="py-2 nav-link" href="#portfolio">Portofolio</a>
+        <a class="py-2 nav-link" href="#contact">Kontak Saya</a>
       </div>
     </div>
   </header>
 
-  <!-- Hero / Home -->
-  <section id="home" class="max-w-6xl mx-auto px-4">
-    <div class="py-10 sm:py-16">
-      <h1 class="text-2xl sm:text-3xl font-semibold">Hi <span id="hiName" class="text-indigo-600">Guest</span>, Welcome To Website</h1>
-      <p class="mt-2 text-sm sm:text-base">Ini adalah website latihan pertama.</p>
-
-      <!-- Photo banner placeholder -->
-      <div class="mt-8 aspect-[1366/578] w-full rounded-xl border bg-slate-50 grid place-items-center text-slate-400 text-sm">
-        1366×578
-      </div>
-    </div>
-  </section>
-
-  <hr>
-
-  <!-- Headquarters -->
-  <section class="max-w-6xl mx-auto px-4 py-10">
-    <h2 class="font-semibold text-lg mb-6">Our Headquarter</h2>
-    <div class="grid grid-cols-3 gap-6 max-sm:grid-cols-1">
-      <div class="hq-item">
-        <div class="hq-circle"></div>
-        <p class="mt-2 text-center">Jakarta</p>
-      </div>
-      <div class="hq-item">
-        <div class="hq-circle"></div>
-        <p class="mt-2 text-center">Bandung</p>
-      </div>
-      <div class="hq-item">
-        <div class="hq-circle"></div>
-        <p class="mt-2 text-center">Surabaya</p>
-      </div>
-    </div>
-  </section>
-
-  <hr>
-
-  <!-- Message Us + Result -->
-  <section id="contact" class="max-w-6xl mx-auto px-4 py-10">
-    <h2 class="font-semibold text-lg mb-6">Message Us</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <!-- Form -->
-      <form id="messageForm" class="space-y-3 bg-white">
+  <main>
+    <!-- Greeting Pengunjung -->
+    <div id="greetingVisitor" class="max-w-6xl mx-auto px-4 mt-6 mb-2 text-lg font-semibold text-pink-700"></div>
+    <!-- Hero -->
+    <section id="home" class="max-w-6xl mx-auto px-4 bg-gradient-to-br from-pink-100 via-yellow-50 to-purple-100 rounded-2xl shadow my-8">
+      <div class="py-10 sm:py-16 flex flex-col md:flex-row items-center gap-8">
+        <img src="asset/myFoto.jpg" alt="Foto Profil"
+          class="w-40 h-40 rounded-full border-4 border-pink-300 shadow-lg object-cover bg-white ring-4 ring-pink-100 transition-transform duration-200 hover:scale-105">
         <div>
-          <label class="form-label" for="name">Nama</label>
-          <input id="name" name="name" type="text" class="form-input" placeholder="Nama" required />
-          <p class="form-error hidden" id="errName"></p>
-        </div>
-
-        <div>
-          <label class="form-label" for="dob">Tanggal Lahir</label>
-          <input id="dob" name="dob" type="date" class="form-input" required />
-         <p class="form-error hidden" id="errDob"></p>
-        </div>
-
-        <div>
-          <span class="form-label">Jenis Kelamin</span>
-          <div class="flex items-center gap-6 mt-1">
-            <label class="inline-flex items-center gap-2">
-              <input type="radio" name="gender" value="Laki-Laki" class="h-4 w-4">
-              <span>Laki-Laki</span>
-            </label>
-            <label class="inline-flex items-center gap-2">
-              <input type="radio" name="gender" value="Perempuan" class="h-4 w-4">
-              <span>Perempuan</span>
-            </label>
-          </div>
-          <p class="form-error hidden" id="errGender"></p>
-        </div>
-
-        <div>
-          <label class="form-label" for="message">Pesan</label>
-          <textarea id="message" name="message" rows="4" class="form-input" placeholder="Pesan" required></textarea>
-          <p class="form-error hidden" id="errMessage"></p>
-        </div>
-
-        <button type="submit" class="w-full rounded-md border px-4 py-2 font-medium hover:bg-slate-50">
-          Submit
-        </button>
-      </form>
-
-      <!-- Result box -->
-      <aside class="rounded-md border p-4">
-        <div id="resultBox" class="text-sm leading-relaxed">
-          <p><strong>Current time:</strong> <span id="currentTime">—</span></p>
-          <div class="mt-3">
-            <p><strong>Nama:</strong> <span id="rName">—</span></p>
-            <p><strong>Tanggal Lahir:</strong> <span id="rDob">—</span></p>
-            <p><strong>Jenis kelamin:</strong> <span id="rGender">—</span></p>
-            <p><strong>Pesan:</strong> <span id="rMessage">—</span></p>
+          <h1 class="text-3xl font-bold text-pink-700 drop-shadow-sm">Adam Mauludin</h1>
+          <p class="mt-2 text-lg font-medium text-pink-900">Mahasiswa S1 Teknik Informatika<br>STIKOM Poltek Cirebon</p>
+          <p class="mt-4 text-gray-700 max-w-xl">
+            Terimakasih telah mengunjungi web portofolio saya! Perkenalkan saya mahasiswa aktif yang sangat antusias di bidang teknologi, khususnya pengembangan web dan aplikasi. Di bawah ini beberapa informasi yang dapat Anda lihat tentang saya.
+          </p>
+          <div class="mt-4 flex gap-3">
+            <a href="https://www.linkedin.com/in/adam-mauludin-081ab1338/" target="_blank" rel="noopener" class="inline-block px-5 py-2 rounded-lg bg-pink-600 text-white font-semibold shadow hover:bg-pink-700 transition">
+              LinkedIn Saya
+            </a>
           </div>
         </div>
-      </aside>
-    </div>
-  </section>
-
-  <!-- Our Profile -->
-  <section id="profile" class="max-w-6xl mx-auto px-4 py-14">
-    <h2 class="text-2xl font-semibold">Our Profile</h2>
-    <p class="mt-2 text-slate-600 max-w-3xl">
-      Contoh profil perusahaan. Tulis informasi lengkap: sejarah singkat, produk/jasa utama, nilai-nilai,
-      serta tim inti. Di bawah ini ada “About the Company” dan “Vision & Mission”.
-    </p>
-
-    <div class="mt-8 grid md:grid-cols-2 gap-6">
-      <article class="rounded-xl border p-5">
-        <h3 class="font-semibold">About the Company</h3>
-        <p class="mt-2 text-sm">
-          Kami fokus pada solusi web sederhana yang efektif untuk UMKM. Portofolio meliputi landing page, toko online,
-          dan dashboard internal.
-        </p>
-      </article>
-      <article class="rounded-xl border p-5">
-        <h3 class="font-semibold">Vision & Mission</h3>
-        <ul class="mt-2 list-disc pl-5 text-sm">
-          <li>Visi: Memberdayakan bisnis lokal melalui teknologi web.</li>
-          <li>Misi: Desain responsif, performa cepat, dan pelayanan yang dekat dengan pengguna.</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <!-- Portfolio (placeholder only) -->
-  <section id="portfolio" class="max-w-6xl mx-auto px-4 pb-16">
-    <h2 class="text-2xl font-semibold">Portfolio</h2>
-    <p class="mt-2 text-slate-600">Contoh kartu portofolio (opsional untuk latihan ini).</p>
-    <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="rounded-lg border p-4">
-        <div class="aspect-video rounded-lg border bg-slate-50"></div>
-        <h4 class="mt-3 font-medium">Project A</h4>
-        <p class="text-sm text-slate-600">Landing page sederhana.</p>
       </div>
-      <div class="rounded-lg border p-4">
-        <div class="aspect-video rounded-lg border bg-slate-50"></div>
-        <h4 class="mt-3 font-medium">Project B</h4>
-        <p class="text-sm text-slate-600">Toko online kecil.</p>
-      </div>
-      <div class="rounded-lg border p-4">
-        <div class="aspect-video rounded-lg border bg-slate-50"></div>
-        <h4 class="mt-3 font-medium">Project C</h4>
-        <p class="text-sm text-slate-600">Dashboard internal.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <footer class="border-t py-6 text-center text-xs text-slate-500">
-    Created By RevoU
+    <section class="max-w-6xl mx-auto px-4 py-10 bg-gradient-to-br from-yellow-100 via-pink-50 to-purple-100 rounded-2xl shadow my-8">
+      <h2 class="font-semibold text-lg mb-6 text-pink-700">Organisasi & Kampus</h2>
+      <div class="grid grid-cols-3 gap-6 max-sm:grid-cols-1">
+        <div class="hq-item">
+          <a href="https://www.instagram.com/stikompoltek/" target="_blank" rel="noopener">
+            <div class="hq-circle flex items-center justify-center overflow-hidden bg-white shadow hover:shadow-lg transition">
+              <img src="asset/LogoKampus.jpg" alt="Logo STIKOM" class="w-full h-full object-contain bg-white p-4">
+            </div>
+          </a>
+          <p class="mt-2 text-center font-semibold text-pink-700">STIKOM Poltek Cirebon</p>
+        </div>
+        <div class="hq-item">
+          <a href="https://www.instagram.com/himakom_stikomcrb/" target="_blank" rel="noopener">
+            <div class="hq-circle flex items-center justify-center overflow-hidden bg-white shadow hover:shadow-lg transition">
+              <img src="asset/logoOrganisasi1.png" alt="Organisasi" class="w-16 h-16 object-contain bg-white">
+            </div>
+          </a>
+          <p class="mt-2 text-center text-pink-700">Himpunan Mahasiswa</p>
+        </div>
+        <div class="hq-item">
+          <a href="https://www.instagram.com/unostikom/" target="_blank" rel="noopener">
+            <div class="hq-circle flex items-center justify-center overflow-hidden bg-white shadow hover:shadow-lg transition">
+              <img src="asset/logoOrganisasi2.png" alt="Komunitas" class="w-16 h-16 object-contain bg-white">
+            </div>
+          </a>
+          <p class="mt-2 text-center text-pink-700">Unit Robotika</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="max-w-6xl mx-auto px-4 py-10 bg-gradient-to-br from-pink-100 via-yellow-50 to-purple-100 rounded-2xl shadow my-8">
+      <h2 class="font-semibold text-lg mb-6 text-pink-700">Kirim saya pesan</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Form -->
+        <form id="messageForm" class="space-y-3 bg-white/90 rounded-xl shadow p-4">
+          <div>
+            <label class="form-label" for="name">Nama</label>
+            <input id="name" name="name" type="text" class="form-input" placeholder="Nama" required />
+            <p class="form-error hidden" id="errName"></p>
+          </div>
+          <div>
+            <label class="form-label" for="dob">Tanggal Lahir</label>
+            <input id="dob" name="dob" type="date" class="form-input" required />
+            <p class="form-error hidden" id="errDob"></p>
+          </div>
+          <div>
+            <span class="form-label">Jenis Kelamin</span>
+            <div class="flex items-center gap-6 mt-1">
+              <label class="inline-flex items-center gap-2">
+                <input type="radio" name="gender" value="Laki-Laki" class="h-4 w-4">
+                <span>Laki-Laki</span>
+              </label>
+              <label class="inline-flex items-center gap-2">
+                <input type="radio" name="gender" value="Perempuan" class="h-4 w-4">
+                <span>Perempuan</span>
+              </label>
+            </div>
+            <p class="form-error hidden" id="errGender"></p>
+          </div>
+          <div>
+            <label class="form-label" for="message">Pesan</label>
+            <textarea id="message" name="message" rows="4" class="form-input" placeholder="Pesan" required></textarea>
+            <p class="form-error hidden" id="errMessage"></p>
+          </div>
+          <button type="submit" class="w-full rounded-md border px-4 py-2 font-medium hover:bg-pink-50 bg-pink-600 text-white hover:bg-pink-700 transition">
+            Kirim
+          </button>
+        </form>
+        <!-- Result box -->
+        <aside class="rounded-md border p-4 bg-white/90 shadow">
+          <div id="resultBox" class="text-sm leading-relaxed">
+            <p><strong>Waktu saat ini:</strong> <span id="currentTime">—</span></p>
+            <div class="mt-3">
+              <p><strong>Nama:</strong> <span id="rName">—</span></p>
+              <p><strong>Tanggal Lahir:</strong> <span id="rDob">—</span></p>
+              <p><strong>Jenis kelamin:</strong> <span id="rGender">—</span></p>
+              <p><strong>Pesan:</strong> <span id="rMessage">—</span></p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="profile" class="max-w-6xl mx-auto px-4 py-14 bg-gradient-to-br from-yellow-100 via-pink-50 to-purple-100 rounded-2xl shadow my-8">
+      <h2 class="text-2xl font-semibold text-pink-700">Tentang Saya</h2>
+      <p class="mt-2 text-gray-700 max-w-3xl">
+        Di kampus STIKOM Poltek saya mengambil jurusan Teknik Informatika jurusan yang saya nikmati dan memiliki minat besar pada pengembangan web, pemrograman, dan teknologi terbaru. Saya aktif di berbagai organisasi kampus dan komunitas IT untuk mengembangkan soft skill dan hard skill.
+      </p>
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+        <article class="rounded-xl border p-5 bg-white/90 shadow">
+          <h3 class="font-semibold text-pink-700">Keahlian</h3>
+          <ul class="mt-2 list-disc pl-5 text-sm">
+            <li>HTML, CSS (Tailwind), JavaScript</li>
+            <li>React, Node.js (dasar)</li>
+            <li>Desain UI/UX (Figma)</li>
+            <li>Manajemen Proyek</li>
+          </ul>
+        </article>
+        <article class="rounded-xl border p-5 bg-white/90 shadow">
+          <h3 class="font-semibold text-pink-700">Pendidikan</h3>
+          <ul class="mt-2 list-disc pl-5 text-sm">
+            <li>S1 Teknik Informatika, STIKOM Poltek</li>
+            <li>Lulus SMAN 3 Cirebon, Tahun 2022</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="portfolio" class="max-w-6xl mx-auto px-4 pb-16 bg-gradient-to-br from-pink-100 via-yellow-50 to-purple-100 rounded-2xl shadow my-8">
+      <h2 class="text-2xl font-semibold text-pink-700">Portofolio</h2>
+      <p class="mt-2 text-gray-700">Beberapa proyek yang pernah saya kerjakan:</p>
+      <div class="mt-6 flex flex-wrap gap-6">
+        <div class="flex-1 min-w-[260px] max-w-sm rounded-lg border p-4 bg-white/90 shadow hover:shadow-lg transition">
+          <div class="aspect-video rounded-lg border bg-pink-50 flex items-center justify-center overflow-hidden">
+            <img src="https://cdn.dribbble.com/users/1162077/screenshots/3848914/programmer.png" alt="Project 1" class="h-20 object-contain">
+          </div>
+          <h4 class="mt-3 font-medium text-pink-700">Website Profil Sekolah</h4>
+          <p class="text-sm text-gray-700">Membuat website profil sekolah dengan fitur galeri dan berita.</p>
+        </div>
+        <div class="flex-1 min-w-[260px] max-w-sm rounded-lg border p-4 bg-white/90 shadow hover:shadow-lg transition">
+          <div class="aspect-video rounded-lg border bg-pink-50 flex items-center justify-center overflow-hidden">
+            <img src="https://cdn-icons-png.flaticon.com/512/2721/2721297.png" alt="Project 2" class="h-16 object-contain">
+          </div>
+          <h4 class="mt-3 font-medium text-pink-700">Aplikasi Kasir Sederhana</h4>
+          <p class="text-sm text-gray-700">Aplikasi kasir berbasis web untuk UMKM menggunakan JavaScript.</p>
+        </div>
+        <div class="flex-1 min-w-[260px] max-w-sm rounded-lg border p-4 bg-white/90 shadow hover:shadow-lg transition">
+          <div class="aspect-video rounded-lg border bg-pink-50 flex items-center justify-center overflow-hidden">
+            <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Project 3" class="h-16 object-contain">
+          </div>
+          <h4 class="mt-3 font-medium text-pink-700">Robot Vakum Cleaner</h4>
+          <p class="text-sm text-gray-700">Projek kelulusan untuk mata kuliah Mikrokontroler dengan arduino uno.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t py-6 text-center text-xs text-white bg-gradient-to-r from-pink-500 via-yellow-300 to-purple-400 shadow">
+    &copy; 2025 AdamM – Website projekt coding camp.
   </footer>
 
   <script src="js/script.js"></script>
