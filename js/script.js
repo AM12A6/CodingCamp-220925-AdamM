@@ -161,7 +161,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Inject corner pills sekali
+  // Inject corner
   function addSectionDecor() {
     const sections = document.querySelectorAll('main section');
     sections.forEach(sec => {

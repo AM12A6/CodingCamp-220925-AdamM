@@ -39,7 +39,6 @@ html { scroll-behavior: smooth; }
   z-index: 0;
 }
 
-/* Pojok relatif ke padding container, bukan -offset */
 .corner-pill.tl { top: 0.25rem; left: 0.25rem; }
 .corner-pill.tr { top: 0.25rem; right: 0.25rem; }
 .corner-pill.bl { bottom: 0.25rem; left: 0.25rem; }
