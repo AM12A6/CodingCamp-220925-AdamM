@@ -89,6 +89,24 @@ form.addEventListener('submit', (e) => {
   document.querySelectorAll('input[name="gender"]').forEach(r => r.checked = false);
 });
 
+// Smooth typing untuk greetingVisitor
+function smoothTypingGreeting() {
+  const greetingVisitor = document.getElementById('greetingVisitor');
+  const visitorName = sessionStorage.getItem('visitorName');
+  if (greetingVisitor && visitorName) {
+    const greet = `Halo ${visitorName}, kenalan lebih dengan saya, yuk :D`;
+    let i = 0;
+    greetingVisitor.textContent = "";
+    function type() {
+      if (i < greet.length) {
+        greetingVisitor.textContent += greet[i++];
+        setTimeout(type, 35);
+      }
+    }
+    type();
+  }
+}
+
 // Modal visitor name & greeting
 window.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('visitorModal');
@@ -109,14 +127,8 @@ window.addEventListener('DOMContentLoaded', () => {
     nameInput.classList.add('bg-slate-100', 'cursor-not-allowed');
   }
 
-  // Tampilkan greeting jika sudah ada nama
-  function showGreeting() {
-    const visitorName = sessionStorage.getItem('visitorName');
-    if (visitorName && greetingVisitor) {
-      greetingVisitor.textContent = `Halo ${visitorName}, kenalan lebih dengan saya, yuk :D`;
-    }
-  }
-  showGreeting();
+  // Tampilkan greeting dengan smooth typing jika sudah ada nama
+  smoothTypingGreeting();
 
   btn.addEventListener('click', () => {
     const name = input.value.trim();
@@ -136,7 +148,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     setTimeout(() => {
       alert(`Terimakasih ${name} sudah mampir :)`);
-      showGreeting();
+      smoothTypingGreeting();
     }, 200);
   });
 
@@ -162,4 +174,32 @@ window.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
+
+  function setupSlider(imgClass, prevId, nextId) {
+    const imgs = document.querySelectorAll('.' + imgClass);
+    let idx = 0;
+    function showImg(i) {
+      imgs.forEach((img, j) => {
+        img.style.opacity = (j === i) ? '1' : '0';
+        img.style.zIndex = (j === i) ? '1' : '0';
+      });
+    }
+    showImg(idx);
+
+    const prev = document.getElementById(prevId);
+    const next = document.getElementById(nextId);
+    if (prev && next) {
+      prev.addEventListener('click', () => {
+        idx = (idx - 1 + imgs.length) % imgs.length;
+        showImg(idx);
+      });
+      next.addEventListener('click', () => {
+        idx = (idx + 1) % imgs.length;
+        showImg(idx);
+      });
+    }
+  }
+  setupSlider('project1-img', 'prevProject1', 'nextProject1');
+  setupSlider('project2-img', 'prevProject2', 'nextProject2');
+  setupSlider('project3-img', 'prevProject3', 'nextProject3');
 });

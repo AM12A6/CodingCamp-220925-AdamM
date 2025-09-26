@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>My Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts: Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
   <style>
     body, .font-poppins {
       font-family: 'Poppins', Arial, Helvetica, sans-serif;
@@ -57,15 +57,21 @@
     </div>
   </header>
 
+
+  <!-- main content -->
   <main>
     <!-- Greeting Pengunjung -->
     <div id="greetingVisitor" class="max-w-6xl mx-auto px-4 mt-6 mb-2 text-lg font-semibold text-pink-700"></div>
     <!-- Hero -->
-    <section id="home" class="max-w-6xl mx-auto px-4 bg-gradient-to-br from-pink-100 via-yellow-50 to-purple-100 rounded-2xl shadow my-8">
+    <section id="home" class="max-w-6xl mx-auto px-4 bg-gradient-to-br from-pink-100 via-yellow-50 to-purple-100 rounded-2xl shadow my-8" data-aos="fade-up">
       <div class="py-10 sm:py-16 flex flex-col md:flex-row items-center gap-8">
         <img src="asset/myFoto.jpg" alt="Foto Profil"
           class="w-40 h-40 rounded-full border-4 border-pink-300 shadow-lg object-cover bg-white ring-4 ring-pink-100 transition-transform duration-200 hover:scale-105">
         <div>
+          <!-- Animated Typing Greeting -->
+          <div class="mb-4">
+            <span id="typingText" class="inline-block bg-pink-200/80 text-pink-900 px-4 py-2 rounded-2xl shadow"></span>
+          </div>
           <h1 class="text-3xl font-bold text-pink-700 drop-shadow-sm">Adam Mauludin</h1>
           <p class="mt-2 text-lg font-medium text-pink-900">Mahasiswa S1 Teknik Informatika<br>STIKOM Poltek Cirebon</p>
           <p class="mt-4 text-gray-700 max-w-xl">
@@ -80,7 +86,7 @@
       </div>
     </section>
 
-    <section class="max-w-6xl mx-auto px-4 py-10 bg-gradient-to-br from-yellow-100 via-pink-50 to-purple-100 rounded-2xl shadow my-8">
+    <section class="max-w-6xl mx-auto px-4 py-10 bg-gradient-to-br from-yellow-100 via-pink-50 to-purple-100 rounded-2xl shadow my-8" data-aos="fade-up">
       <h2 class="font-semibold text-lg mb-6 text-pink-700">Organisasi & Kampus</h2>
       <div class="grid grid-cols-3 gap-6 max-sm:grid-cols-1">
         <div class="hq-item">
@@ -110,7 +116,7 @@
       </div>
     </section>
 
-    <section id="contact" class="max-w-6xl mx-auto px-4 py-10 bg-gradient-to-br from-pink-100 via-yellow-50 to-purple-100 rounded-2xl shadow my-8">
+    <section id="contact" class="max-w-6xl mx-auto px-4 py-10 bg-gradient-to-br from-pink-100 via-yellow-50 to-purple-100 rounded-2xl shadow my-8" data-aos="fade-up">
       <h2 class="font-semibold text-lg mb-6 text-pink-700">Kirim saya pesan</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Form -->
@@ -163,7 +169,7 @@
       </div>
     </section>
 
-    <section id="profile" class="max-w-6xl mx-auto px-4 py-14 bg-gradient-to-br from-yellow-100 via-pink-50 to-purple-100 rounded-2xl shadow my-8">
+    <section id="profile" class="max-w-6xl mx-auto px-4 py-14 bg-gradient-to-br from-yellow-100 via-pink-50 to-purple-100 rounded-2xl shadow my-8" data-aos="fade-up">
       <h2 class="text-2xl font-semibold text-pink-700">Tentang Saya</h2>
       <p class="mt-2 text-gray-700 max-w-3xl">
         Di kampus STIKOM Poltek saya mengambil jurusan Teknik Informatika jurusan yang saya nikmati dan memiliki minat besar pada pengembangan web, pemrograman, dan teknologi terbaru. Saya aktif di berbagai organisasi kampus dan komunitas IT untuk mengembangkan soft skill dan hard skill.
@@ -188,27 +194,44 @@
       </div>
     </section>
 
-    <section id="portfolio" class="max-w-6xl mx-auto px-4 pb-16 bg-gradient-to-br from-pink-100 via-yellow-50 to-purple-100 rounded-2xl shadow my-8">
+    <section id="portfolio" class="max-w-6xl mx-auto px-4 pb-16 bg-gradient-to-br from-pink-100 via-yellow-50 to-purple-100 rounded-2xl shadow my-8" data-aos="fade-up">
       <h2 class="text-2xl font-semibold text-pink-700">Portofolio</h2>
       <p class="mt-2 text-gray-700">Beberapa proyek yang pernah saya kerjakan:</p>
       <div class="mt-6 flex flex-wrap gap-6">
-        <div class="flex-1 min-w-[260px] max-w-sm rounded-lg border p-4 bg-white/90 shadow hover:shadow-lg transition">
-          <div class="aspect-video rounded-lg border bg-pink-50 flex items-center justify-center overflow-hidden">
-            <img src="https://cdn.dribbble.com/users/1162077/screenshots/3848914/programmer.png" alt="Project 1" class="h-20 object-contain">
+        <!-- Card 1 -->
+        <div class="flex-1 min-w-[260px] max-w-sm rounded-lg border p-4 bg-white/90 shadow transition-transform duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl">
+          <div class="aspect-video rounded-lg border bg-pink-50 flex items-center justify-center overflow-hidden relative">
+            <img src="asset/projekImg/Projek1-1.png" alt="Project 1" class="h-36 max-h-full w-full max-w-full object-contain project1-img absolute left-0 top-0 transition-opacity duration-300 opacity-100 z-0">
+            <img src="asset/projekImg/Projek1-2.png" alt="Project 1" class="h-36 max-h-full w-full max-w-full object-contain project1-img absolute left-0 top-0 transition-opacity duration-300 opacity-0 z-0">
+            <img src="asset/projekImg/Projek1-3.png" alt="Project 1" class="h-36 max-h-full w-full max-w-full object-contain project1-img absolute left-0 top-0 transition-opacity duration-300 opacity-0 z-0">
+            <button id="prevProject1" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 rounded-full px-2 py-1 text-pink-700 shadow hover:bg-pink-100 transition text-lg z-10">&lt;</button>
+            <button id="nextProject1" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 rounded-full px-2 py-1 text-pink-700 shadow hover:bg-pink-100 transition text-lg z-10">&gt;</button>
           </div>
-          <h4 class="mt-3 font-medium text-pink-700">Website Profil Sekolah</h4>
-          <p class="text-sm text-gray-700">Membuat website profil sekolah dengan fitur galeri dan berita.</p>
+          <h4 class="mt-3 font-medium text-pink-700">Website Topup Game</h4>
+          <p class="text-sm text-gray-700">Membuat website Topup game jual beli voucher online dengan fitur minimalis dan efektif.</p>
         </div>
-        <div class="flex-1 min-w-[260px] max-w-sm rounded-lg border p-4 bg-white/90 shadow hover:shadow-lg transition">
-          <div class="aspect-video rounded-lg border bg-pink-50 flex items-center justify-center overflow-hidden">
-            <img src="https://cdn-icons-png.flaticon.com/512/2721/2721297.png" alt="Project 2" class="h-16 object-contain">
+
+        <!-- Card 2 -->
+        <div class="flex-1 min-w-[260px] max-w-sm rounded-lg border p-4 bg-white/90 shadow transition-transform duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl">
+          <div class="aspect-video rounded-lg border bg-pink-50 flex items-center justify-center overflow-hidden relative">
+            <img src="asset/projekImg/Projek2-1.jpg" alt="Project 2" class="h-36 max-h-full w-full max-w-full object-contain project2-img absolute left-0 top-0 transition-opacity duration-300 opacity-100 z-0">
+            <img src="asset/projekImg/Projek2-2.jpg" alt="Project 2" class="h-36 max-h-full w-full max-w-full object-contain project2-img absolute left-0 top-0 transition-opacity duration-300 opacity-0 z-0">
+            <img src="asset/projekImg/Projek2-3.jpg" alt="Project 2" class="h-36 max-h-full w-full max-w-full object-contain project2-img absolute left-0 top-0 transition-opacity duration-300 opacity-0 z-0">
+            <button id="prevProject2" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 rounded-full px-2 py-1 text-pink-700 shadow hover:bg-pink-100 transition text-lg z-10">&lt;</button>
+            <button id="nextProject2" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 rounded-full px-2 py-1 text-pink-700 shadow hover:bg-pink-100 transition text-lg z-10">&gt;</button>
           </div>
           <h4 class="mt-3 font-medium text-pink-700">Aplikasi Kasir Sederhana</h4>
           <p class="text-sm text-gray-700">Aplikasi kasir berbasis web untuk UMKM menggunakan JavaScript.</p>
         </div>
-        <div class="flex-1 min-w-[260px] max-w-sm rounded-lg border p-4 bg-white/90 shadow hover:shadow-lg transition">
-          <div class="aspect-video rounded-lg border bg-pink-50 flex items-center justify-center overflow-hidden">
-            <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Project 3" class="h-16 object-contain">
+
+        <!-- Card 3 -->
+        <div class="flex-1 min-w-[260px] max-w-sm rounded-lg border p-4 bg-white/90 shadow transition-transform duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl">
+          <div class="aspect-video rounded-lg border bg-pink-50 flex items-center justify-center overflow-hidden relative">
+            <img src="asset/projekImg/Projek3-1.jpeg" alt="Project 3" class="h-36 max-h-full w-full max-w-full object-contain project3-img absolute left-0 top-0 transition-opacity duration-300 opacity-100 z-0">
+            <img src="asset/projekImg/Projek3-2.jpeg" alt="Project 3" class="h-36 max-h-full w-full max-w-full object-contain project3-img absolute left-0 top-0 transition-opacity duration-300 opacity-0 z-0">
+            <img src="asset/projekImg/Projek3-3.jpeg" alt="Project 3" class="h-36 max-h-full w-full max-w-full object-contain project3-img absolute left-0 top-0 transition-opacity duration-300 opacity-0 z-0">
+            <button id="prevProject3" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 rounded-full px-2 py-1 text-pink-700 shadow hover:bg-pink-100 transition text-lg z-10">&lt;</button>
+            <button id="nextProject3" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 rounded-full px-2 py-1 text-pink-700 shadow hover:bg-pink-100 transition text-lg z-10">&gt;</button>
           </div>
           <h4 class="mt-3 font-medium text-pink-700">Robot Vakum Cleaner</h4>
           <p class="text-sm text-gray-700">Projek kelulusan untuk mata kuliah Mikrokontroler dengan arduino uno.</p>
@@ -222,5 +245,13 @@
   </footer>
 
   <script src="js/script.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 80,
+    });
+  </script>
 </body>
 </html>
