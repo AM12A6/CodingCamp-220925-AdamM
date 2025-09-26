@@ -161,23 +161,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Inject corner
-  function addSectionDecor() {
-    const sections = document.querySelectorAll('main section');
-    sections.forEach(sec => {
-      if (!sec.classList.contains('with-corner-decor')) {
-        sec.classList.add('with-corner-decor');
-        ['tl','tr','bl','br'].forEach(pos => {
-          const span = document.createElement('span');
-          span.className = 'corner-pill ' + pos;
-          sec.appendChild(span);
-        });
-      }
-    });
-  }
-  addSectionDecor();
-
-
   function setupSlider(imgClass, prevId, nextId) {
     const imgs = document.querySelectorAll('.' + imgClass);
     let idx = 0;
