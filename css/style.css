@@ -19,6 +19,49 @@ html { scroll-behavior: smooth; }
   letter-spacing: 0.01em;
 }
 
+/* === Corner pills decoration === */
+.with-corner-decor {
+  position: relative; /* supaya absolut anaknya nge-anchored ke section */
+  overflow: visible;
+}
+
+/* Bentuk pil lembut seperti contoh gambar */
+.corner-pill {
+  position: absolute;
+  width: 44px;
+  height: 18px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, rgba(252,231,243,0.95), rgba(255,247,237,0.9));
+  box-shadow:
+    0 8px 24px rgba(236,72,153,0.25),
+    inset 0 0 10px rgba(255,255,255,0.9);
+  border: 1px solid rgba(244,114,182,0.25); /* pink-400 tipis */
+  pointer-events: none;
+}
+
+/* Posisi pojok */
+.corner-pill.tl { top: -12px; left: -12px; }
+.corner-pill.tr { top: -12px; right: -12px; }
+.corner-pill.bl { bottom: -12px; left: -12px; }
+.corner-pill.br { bottom: -12px; right: -12px; }
+
+/* Sedikit variasi ukuran agar lebih hidup */
+.with-corner-decor .corner-pill.tr,
+.with-corner-decor .corner-pill.bl { transform: scale(0.9); opacity: 0.95; }
+.with-corner-decor .corner-pill.br { transform: scale(1.05); }
+
+/* Responsif: rapetin kalau layar kecil */
+@media (max-width: 480px) {
+  .corner-pill {
+    width: 36px;
+    height: 14px;
+  }
+  .corner-pill.tl,
+  .corner-pill.tr,
+  .corner-pill.bl,
+  .corner-pill.br { transform: scale(0.9); }
+}
+
 .form-input {
   width: 100%;
   border-radius: 0.5rem;
