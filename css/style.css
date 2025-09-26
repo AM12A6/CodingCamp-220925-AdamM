@@ -1,11 +1,10 @@
 /* custom additions on top of Tailwind (keep single CSS file as requested) */
 html { scroll-behavior: smooth; }
 
-/* HQ circles to match wireframe */
 .hq-circle {
   width: 140px;
   height: 140px;
-  border: 2px solid #cbd5e1; /* slate-300 */
+  border: 2px solid #cbd5e1; 
   border-radius: 9999px;
   margin: 0 auto;
   background: white;
@@ -14,18 +13,16 @@ html { scroll-behavior: smooth; }
 .form-label {
   display: block;
   font-weight: 500;
-  color: #334155; /* slate-700 */
+  color: #334155;
   margin-bottom: 0.25rem;
   letter-spacing: 0.01em;
 }
 
-/* === Corner pills decoration === */
 .with-corner-decor {
-  position: relative; /* supaya absolut anaknya nge-anchored ke section */
+  position: relative; 
   overflow: visible;
 }
 
-/* Bentuk pil lembut seperti contoh gambar */
 .corner-pill {
   position: absolute;
   width: 44px;
@@ -35,22 +32,19 @@ html { scroll-behavior: smooth; }
   box-shadow:
     0 8px 24px rgba(236,72,153,0.25),
     inset 0 0 10px rgba(255,255,255,0.9);
-  border: 1px solid rgba(244,114,182,0.25); /* pink-400 tipis */
+  border: 1px solid rgba(244,114,182,0.25); 
   pointer-events: none;
 }
 
-/* Posisi pojok */
 .corner-pill.tl { top: -12px; left: -12px; }
 .corner-pill.tr { top: -12px; right: -12px; }
 .corner-pill.bl { bottom: -12px; left: -12px; }
 .corner-pill.br { bottom: -12px; right: -12px; }
 
-/* Sedikit variasi ukuran agar lebih hidup */
 .with-corner-decor .corner-pill.tr,
 .with-corner-decor .corner-pill.bl { transform: scale(0.9); opacity: 0.95; }
 .with-corner-decor .corner-pill.br { transform: scale(1.05); }
 
-/* Responsif: rapetin kalau layar kecil */
 @media (max-width: 480px) {
   .corner-pill {
     width: 36px;
@@ -65,22 +59,22 @@ html { scroll-behavior: smooth; }
 .form-input {
   width: 100%;
   border-radius: 0.5rem;
-  border: 1px solid #cbd5e1; /* slate-300 */
+  border: 1px solid #cbd5e1; 
   padding: 0.5rem 0.75rem;
   font-size: 1rem;
-  background: #f8fafc; /* slate-50 */
+  background: #f8fafc;
   color: #334155;
   transition: border 0.2s;
   outline: none;
   margin-bottom: 0.25rem;
 }
 .form-input:focus {
-  border-color: #6366f1; /* indigo-500 */
+  border-color: #6366f1; 
   background: #fff;
 }
 
 .form-error {
-  color: #ef4444; /* red-500 */
+  color: #ef4444;
   font-size: 0.875rem;
   margin-top: 0.1rem;
 }

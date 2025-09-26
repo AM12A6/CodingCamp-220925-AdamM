@@ -4,7 +4,6 @@ function formatNow() {
   return now.toString();
 }
 
-// Navbar mobile toggle
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 if (hamburger) {
@@ -13,7 +12,6 @@ if (hamburger) {
   });
 }
 
-// Greeting: mirror name from form into the hero
 const nameInput = document.getElementById('name');
 const hiName = document.getElementById('hiName');
 if (nameInput && hiName) {
@@ -25,10 +23,8 @@ if (nameInput && hiName) {
   updateHi();
 }
 
-// Set current time initially
 document.getElementById('currentTime').textContent = formatNow();
 
-// Form validation + result rendering
 const form = document.getElementById('messageForm');
 
 function showError(id, msg) {
@@ -61,35 +57,29 @@ form.addEventListener('submit', (e) => {
 
   if (!valid) return;
 
-  // Render output box
   document.getElementById('currentTime').textContent = formatNow();
   document.getElementById('rName').textContent = name;
   document.getElementById('rDob').textContent = dob;
   document.getElementById('rGender').textContent = gender;
   document.getElementById('rMessage').textContent = message;
 
-  // Tampilkan alert dan info submit
   alert(`Terimakasih ${name}, pesan mu sudah terkirim :D`);
 
-  // Tampilkan informasi telah disubmit DI BAWAH hasil pesan
   let info = document.getElementById('submitInfo');
   const resultBox = document.getElementById('resultBox');
   if (!info) {
     info = document.createElement('div');
     info.id = 'submitInfo';
     info.className = 'mt-4 p-3 rounded bg-green-100 text-green-700 text-center font-semibold';
-    // Sisipkan setelah resultBox
     resultBox.parentNode.appendChild(info);
   }
   info.textContent = 'Informasi telah disubmit';
 
-  // Reset field selain nama (manual)
   document.getElementById('dob').value = '';
   document.getElementById('message').value = '';
   document.querySelectorAll('input[name="gender"]').forEach(r => r.checked = false);
 });
 
-// Smooth typing untuk greetingVisitor
 function smoothTypingGreeting() {
   const greetingVisitor = document.getElementById('greetingVisitor');
   const visitorName = sessionStorage.getItem('visitorName');
@@ -107,7 +97,6 @@ function smoothTypingGreeting() {
   }
 }
 
-// Modal visitor name & greeting
 window.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('visitorModal');
   const blurOverlay = document.getElementById('blurOverlay');
@@ -116,7 +105,6 @@ window.addEventListener('DOMContentLoaded', () => {
   const nameInput = document.getElementById('name');
   const greetingVisitor = document.getElementById('greetingVisitor');
 
-  // Show modal & blur overlay jika belum isi nama
   if (!sessionStorage.getItem('visitorName')) {
     modal.classList.remove('hidden');
     blurOverlay.classList.remove('hidden');
@@ -127,7 +115,6 @@ window.addEventListener('DOMContentLoaded', () => {
     nameInput.classList.add('bg-slate-100', 'cursor-not-allowed');
   }
 
-  // Tampilkan greeting dengan smooth typing jika sudah ada nama
   smoothTypingGreeting();
 
   btn.addEventListener('click', () => {
@@ -156,7 +143,6 @@ window.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Enter') btn.click();
   });
 
-  // Prevent user from changing name or resetting form
   if (nameInput) {
     nameInput.addEventListener('keydown', (e) => {
       e.preventDefault();
@@ -175,14 +161,11 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-    // === Inject corner pills ke setiap section ===
   function addSectionDecor() {
     const sections = document.querySelectorAll('main section');
     sections.forEach((sec) => {
-      // tandai section agar bisa diposisikan relatif
       sec.classList.add('with-corner-decor');
 
-      // bikin 4 pil untuk tiap pojok
       ['tl','tr','bl','br'].forEach(pos => {
         const span = document.createElement('span');
         span.className = 'corner-pill ' + pos;
