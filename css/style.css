@@ -19,41 +19,42 @@ html { scroll-behavior: smooth; }
 }
 
 .with-corner-decor {
-  position: relative; 
-  overflow: visible;
+  position: relative;
+  --pill-w: clamp(26px, 6vw, 52px);
+  --pill-h: clamp(10px, 2.4vw, 20px);
+  --pill-offset: calc(var(--pill-h) * 0.9);
 }
 
 .corner-pill {
   position: absolute;
-  width: 44px;
-  height: 18px;
+  width: var(--pill-w, 40px);
+  height: var(--pill-h, 14px);
   border-radius: 9999px;
-  background: linear-gradient(135deg, rgba(252,231,243,0.95), rgba(255,247,237,0.9));
+  background: linear-gradient(135deg, rgba(243, 189, 220, 0.95), rgba(237, 255, 255, 0.9));
   box-shadow:
-    0 8px 24px rgba(236,72,153,0.25),
-    inset 0 0 10px rgba(255,255,255,0.9);
-  border: 1px solid rgba(244,114,182,0.25); 
+    0 6px 18px rgba(236,72,153,0.25),
+    inset 0 0 8px rgba(225, 140, 140, 0.9);
+  border: 1px solid rgba(244,114,182,0.25);
   pointer-events: none;
+  z-index: 0;
 }
 
-.corner-pill.tl { top: -12px; left: -12px; }
-.corner-pill.tr { top: -12px; right: -12px; }
-.corner-pill.bl { bottom: -12px; left: -12px; }
-.corner-pill.br { bottom: -12px; right: -12px; }
+/* Pojok relatif ke padding container, bukan -offset */
+.corner-pill.tl { top: 0.25rem; left: 0.25rem; }
+.corner-pill.tr { top: 0.25rem; right: 0.25rem; }
+.corner-pill.bl { bottom: 0.25rem; left: 0.25rem; }
+.corner-pill.br { bottom: 0.25rem; right: 0.25rem; }
 
 .with-corner-decor .corner-pill.tr,
-.with-corner-decor .corner-pill.bl { transform: scale(0.9); opacity: 0.95; }
+.with-corner-decor .corner-pill.bl { transform: scale(0.92); opacity: 0.96; }
 .with-corner-decor .corner-pill.br { transform: scale(1.05); }
 
 @media (max-width: 480px) {
-  .corner-pill {
-    width: 36px;
-    height: 14px;
+  .with-corner-decor {
+    --pill-w: clamp(22px, 9vw, 40px);
+    --pill-h: clamp(8px, 1.9vw, 16px);
+    --pill-offset: calc(var(--pill-h) * 0.8);
   }
-  .corner-pill.tl,
-  .corner-pill.tr,
-  .corner-pill.bl,
-  .corner-pill.br { transform: scale(0.9); }
 }
 
 .form-input {
